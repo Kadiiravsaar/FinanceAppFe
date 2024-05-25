@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import "./Card.css"
 import { CompanySearch } from '../../company';
+import AddPortfolio from '../portfolio/addPortfolio/AddPortfolio';
 
 interface Props {
     id:string;
     searchResult : CompanySearch;
+    onPortfolioCreate: (e: SyntheticEvent) => void;
 
 }
 
-const Card: React.FC<Props> = ({ id,searchResult  }: Props) => {
+const Card: React.FC<Props> = ({ id,searchResult ,onPortfolioCreate }: Props) => {
     return (
-        <div className="card">
+        <div className="card" key={id} id = {id}>
             <img
                 alt ="logo"
             />
@@ -26,6 +28,7 @@ const Card: React.FC<Props> = ({ id,searchResult  }: Props) => {
                 {searchResult.exchangeShortName} - {searchResult.stockExchange}
 
             </p>
+            <AddPortfolio onPortfolioCreate={onPortfolioCreate} symbol={searchResult.symbol}/>
         </div>
     );
 
