@@ -1,9 +1,9 @@
 export interface CompanySearch {
-    Currency: string;
-    ExchangeShortName: string;
-    Name: string;
-    StockExchange: string;
-    Symbol: string;
+    currency: string;
+    exchangeShortName: string;
+    name: string;
+    stockExchange: string;
+    symbol: string;
 }
 
 export interface CompanyProfile {
