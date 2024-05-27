@@ -1,11 +1,10 @@
 import React, { ChangeEvent, SyntheticEvent, useState } from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import Hero from '../../components/hero/Hero'
 import ListPortfolio from '../../components/portfolio/listPorftolio/ListPortfolio'
 import CardList from '../../components/cardList/CardList'
 import { CompanySearch } from '../../company'
 import { searchCompanies } from '../../api'
 import Search from '../../components/search/Search'
+import Hero from '../../components/hero/Hero'
 
 interface Props  {
 }
@@ -51,10 +50,10 @@ const SearchPage = (props: Props) => {
     
   return (
     <>
-      {/* <Hero></Hero> */}
       <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange} />
       <ListPortfolio portfolioValues = {portfolioValues} onPortfolioDelete = {onPortfolioDelete}></ListPortfolio>
       <CardList searchResult={searchResult} onPortfolioCreate={onPortfolioCreate} />
+        {serverError ? <div> Error Type:{serverError}</div>:null}
     </>
   )
 }
