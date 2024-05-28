@@ -1,11 +1,11 @@
 import React from "react";
 import Table from "../../components/table/Table";
 import RatioList from "../../components/ratioList/RatioList";
-import { testIncomeStatementData } from "../../components/table/testData";
+import { TestDataCompany, testIncomeStatementData } from "../../components/table/testData";
 
 
 type Props = {};
-
+const data = TestDataCompany;
 const tableConfig = [
   {
     label: "Market Cap",
@@ -21,7 +21,7 @@ const DesignGuide = (props: Props) => {
         components of the app with brief instructions on how to use them.
       </h1>
       <RatioList data={testIncomeStatementData} config={tableConfig} />
-      <Table />
+      <Table config={tableConfig} data={data} />
       <h3>
         Table - Table takes in a configuration object and company data as
         params. Use the config to style your table.
