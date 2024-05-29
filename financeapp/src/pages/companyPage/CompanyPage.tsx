@@ -13,7 +13,6 @@ const CompanyPage = (props: Props) => {
   let { ticker } = useParams();
 
   const [company, setCompany] = useState<CompanyProfile>();
-  const [activeSidebarItem, setActiveSideBarItem] = useState<number>(1);
 
   useEffect(() => {
     const getProfileInit = async () => {
@@ -30,6 +29,9 @@ const CompanyPage = (props: Props) => {
           <Sidebar />
           <CompanyDashboard ticker={ticker!}>
             <Tile title="Company Name" subTitle={company.companyName} />
+            <Tile title="Price" subTitle={company.price.toString()} />
+            <Tile title="Sector" subTitle={company.sector} />
+            <Tile title="Market Cap" subTitle={company.mktCap.toString()} />
           </CompanyDashboard>
         </div>
       ) : (
